@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Notebook</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../img/favicon.ico">
+
+	<!-- styles -->
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- HTML5 shim -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<!-- the navbar -->
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+			 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			 </a>
+			 <a class="brand" href="notebook.html"><p class="notebook">Notebook</p></a>
+			 <div class="nav-collapse collapse">
+				<form class="navbar-form pull-right">
+					<input type="text" class="span2" placeholder="Username">
+					<input type="password" class="span2" placeholder="Password">
+					<button class="btn" type="submit">log in</button>
+				</form>
+				<ul class="nav">
+				  <li class="active"><a href="notebook.html">Home</a></li>
+				  <li><a href="about.html">About</a></li>
+				  <li><a href="contact.html">Contact</a></li>
+				  <li><a href="register.html">Register</a></li>
+				</ul>
+			 </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+		<!-- <div class="span3">
+			<ul class="nav nav-list">
+				<li class="nav-header">Notes by format</li>
+				<li><a href="#">PDF notes</a></li>
+				<li><a href="#">Plain text notes</a></li>
+				<li><a href="#">Audio notes</a></li>
+				<li class="nav-header">Notes by subject</li>
+				<li><a href="#">Mathematics</a></li>
+				<li><a href="#">Philosophy</a></li>
+				<li><a href="#">Language</a></li>
+				<li><a href="#">Computation</a></li>
+			</ul>
+		</div>
+		<div class="span9"></div> -->
+
+		<div class="span12">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th><i class="icon-book"></i> Course</th>
+						<th><i class="icon-calendar"></i> Date</th>
+						<th><i class="icon-file"></i> Filesize</th>
+						<th><i class="icon-user"></i> Uploader</th>
+						<th><i class="icon-download"></i> Download</th>
+						<th><i class="icon-eye-open"></i> Preview</th>
+					</tr>
+				</thead>
+				<tbody>
+					<div class="accordion" id="accordion">
+						<tr>
+							<td><a href="#">Modal Logic</a></td>
+							<td><a href="#">03.09.12</a></td>
+							<td>145 kb</td>
+							<td><a href="#">Evante</a></td>
+							<td><a href="../pdfs/Notes1.pdf">Notes1.pdf</a></td>
+							<td>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a href="#Notes1" data-parent="accordion" class="btn btn-mini btn-info" data-toggle="collapse">pdf</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<!-- the preview -->
+						<tr>
+							<td colspan="6" class="preview">
+								<div class="accordion-body collapse" id="Notes1">
+									<div class="accordion-inner">
+										<div class="pdf">
+											<object data="../pdfs/Notes1.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;zoom=50" type="application/pdf" width="100%" height="100%">Sorry, your browser does not support previewing pdfs. You can <a href="../pdfs/Notes1.pdf">download</a> this file instead.
+											</object>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td><a href="#">Modal Logic</a></td>
+							<td><a href="#">05.09.12</a></td>
+							<td>152 kb</td>
+							<td><a href="#">Evante</a></td>
+							<td><a href="../pdfs/Notes2.pdf">Notes2.pdf</a></td>
+							<td>
+								<div class="accordion-group">
+									<div class="accordion-heading">
+										<a href="#Notes2" data-parent="accordion" class="btn btn-mini btn-info" data-toggle="collapse">pdf</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<!-- the preview -->
+						<tr>
+							<td colspan="6" class="preview">
+								<div class="accordion-body collapse" id="Notes2">
+									<div class="accordion-inner">
+										<div class="pdf">
+											<object data="../pdfs/Notes2.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;zoom=50" type="application/pdf" width="100%" height="100%">Sorry, your browser does not support previewing pdfs. You can <a href="../pdfs/Notes2.pdf">download</a> this file instead.
+											</object>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td><a href="#">Modal Logic</a></td>
+							<td><a href="#">05.09.12</a></td>
+							<td>152 kb</td>
+							<td><a href="#">Evante</a></td>
+							<td><a href="../pdfs/Notes2.pdf">Notes2.pdf</a></td>
+							<td>
+								Not available.
+							</td>
+						</tr>
+
+					</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<!-- font for logo -->
+	<script type="text/javascript">
+		WebFontConfig = {
+			 google: { families: [ 'Fredericka+the+Great::latin' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	</script>
+	<!-- jquery library -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!-- bootstrap library -->
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</body>
+</html>

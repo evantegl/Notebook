@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Notebook</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../img/favicon.ico">
+
+	<!-- styles -->
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- HTML5 shim -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<!-- the navbar -->
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+			 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			 </a>
+			 <a class="brand" href="notebook.html"><p class="notebook">Notebook</p></a>
+			 <div class="nav-collapse collapse">
+				<form class="navbar-form pull-right">
+					<input type="text" class="span2" placeholder="Username">
+					<input type="password" class="span2" placeholder="Password">
+					<button class="btn" type="submit">log in</button>
+				</form>
+				<ul class="nav">
+				  <li class="active"><a href="notebook.html">Home</a></li>
+				  <li><a href="about.html">About</a></li>
+				  <li><a href="contact.html">Contact</a></li>
+				  <li><a href="register.html">Register</a></li>
+				</ul>
+			 </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="span12">
+			<div id="welcome">
+				<h1>Welcome to <p class="notebook">Notebook</p>!</h1>
+				<p><span class="notebook">Notebook</span> is a place to share and download notes for your classes. You should <a href="register.html">register</a> if you have notes to upload, or you can go straight to the <a href="notes.html">catalog</a>.</p>
+				<a href="register.html" class="btn btn-success btn-large"><i class="icon-user icon-white"></i> Sign me up!</a>
+				<a href="notes.html" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> To the notes!</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<script type="text/javascript">
+		WebFontConfig = {
+			 google: { families: [ 'Fredericka+the+Great::latin' ] }
+		};
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</body>
+</html>
