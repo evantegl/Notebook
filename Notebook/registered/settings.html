@@ -28,16 +28,19 @@
 			 </a>
 			 <a class="brand" href="splash.html"><p class="notebook">Notebook</p></a>
 			 <div class="nav-collapse collapse">
-				<form class="navbar-form pull-right">
-					<input type="text" class="span2" placeholder="Username">
-					<input type="password" class="span2" placeholder="Password">
-					<button class="btn" type="submit">log in</button>
-				</form>
+				<ul class="nav pull-right">
+					<li class="dropdown">
+						<a href="#" id="account-drop" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Evante <b class="caret"></b></a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="account-drop">
+							<li><a href="account/settings.html" tabindex="-1"><i class="icon-cog"></i> Settings</a></li>
+							<li><a href="../anonymous/splash.html" tabindex="-1"><i class="icon-off"></i> Log out</a></li>
+						</ul>
+					</li>
+				</ul>
 				<ul class="nav">
-				  <li><a href="splash.html">Home</a></li>
-				  <li><a href="about.html">About</a></li>
-				  <li><a href="contact.html">Contact</a></li>
-				  <li class="active"><a href="register.html">Register</a></li>
+				  <li><a href="splash.html"><i class="icon-white icon-home"></i> Home</a></li>
+				  <li><a href="about.html"><i class="icon-white icon-info-sign"></i> About</a></li>
+				  <li><a href="contact.html"><i class="icon-white icon-envelope"></i> Contact</a></li>
 				</ul>
 			 </div>
 			</div>
@@ -46,35 +49,23 @@
 
 	<div class="container-fluid">
 		<div class="span12">
-			<form class="form-horizontal">
-				<legend>Register for <span class="notebook">Notebook</span></legend>
+			<form action="" class="form-horizontal">
+				<legend>Change your account information:</legend>
 				<div class="control-group">
 					<label for="name" class="control-label">Name:</label>
-					<div class="controls">
-						<input type="text" id="name" placeholder="Name">
-					</div>
+					<div class="controls"><input type="text" placeholder="Name" id="name" value="Evante"></div>
 				</div>
 				<div class="control-group">
 					<label for="email" class="control-label">Email:</label>
-					<div class="controls">
-						<input type="text" id="email" placeholder="Email">
-					</div>
+					<div class="controls"><input type="text" placeholder="Email" id="email" value="evantegl@gmail.com"></div>
 				</div>
 				<div class="control-group">
-					<label for="password" class="control-label">Password:</label>
-					<div class="controls">
-						<input type="password" id="password" placeholder="Password">
-					</div>
+					<label for="password1" class="control-label">Password:</label>
+					<div class="controls"><input type="password" id="password1"></div>
 				</div>
 				<div class="control-group">
-					<label for="password2" class="control-label">Confirm password:</label>
-					<div class="controls">
-						<input type="password" id="password2" placeholder="Confirm password">
-					</div>
-				</div>
-				<div class="form-actions">
-					<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Register</button>
-					<button class="btn btn-danger" type="reset"><i class="icon-remove icon-white"></i> Cancel</a>
+					<label for="password2" class="control-label">Verify password:</label>
+					<div class="controls"><input type="password" id="password2"></div>
 				</div>
 			</form>
 		</div>

@@ -34,10 +34,10 @@
 					<button class="btn" type="submit">log in</button>
 				</form>
 				<ul class="nav">
-				  <li><a href="splash.html">Home</a></li>
+				  <li class="active"><a href="splash.html">Home</a></li>
 				  <li><a href="about.html">About</a></li>
 				  <li><a href="contact.html">Contact</a></li>
-				  <li class="active"><a href="register.html">Register</a></li>
+				  <li><a href="register.html">Register</a></li>
 				</ul>
 			 </div>
 			</div>
@@ -46,37 +46,12 @@
 
 	<div class="container-fluid">
 		<div class="span12">
-			<form class="form-horizontal">
-				<legend>Register for <span class="notebook">Notebook</span></legend>
-				<div class="control-group">
-					<label for="name" class="control-label">Name:</label>
-					<div class="controls">
-						<input type="text" id="name" placeholder="Name">
-					</div>
-				</div>
-				<div class="control-group">
-					<label for="email" class="control-label">Email:</label>
-					<div class="controls">
-						<input type="text" id="email" placeholder="Email">
-					</div>
-				</div>
-				<div class="control-group">
-					<label for="password" class="control-label">Password:</label>
-					<div class="controls">
-						<input type="password" id="password" placeholder="Password">
-					</div>
-				</div>
-				<div class="control-group">
-					<label for="password2" class="control-label">Confirm password:</label>
-					<div class="controls">
-						<input type="password" id="password2" placeholder="Confirm password">
-					</div>
-				</div>
-				<div class="form-actions">
-					<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Register</button>
-					<button class="btn btn-danger" type="reset"><i class="icon-remove icon-white"></i> Cancel</a>
-				</div>
-			</form>
+			<div id="welcome">
+				<h1>Welcome to <p class="notebook">Notebook</p>!</h1>
+				<p><span class="notebook">Notebook</span> is a place to share and download notes for your classes. You should <a href="register.html">register</a> if you have notes to upload, or you can go straight to the <a href="notes.html">catalog</a>.</p>
+				<a href="register.html" class="btn btn-success btn-large"><i class="icon-user icon-white"></i> Sign me up!</a>
+				<a href="notes.html" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> To the notes!</a>
+			</div>
 		</div>
 	</div>
 
