@@ -1,0 +1,177 @@
+More notes
+===============
+Alessandra Palmigiano, Fatemeh Seifan, Sumit Sourabh
+Course website: http://staff.science.uva.nl/~sumit/proofs
+Mon 15 - 1645 @ D1.114; Wed 17-1845 @ G3.10; Thur 13-1445 @ G4.15
+
+Frege Systems (aka Hilbert Systems)
+1) Defining the language
+2) Defining the rules of inference
+
+Natural Deduction systems
+First class citizens, uses more rules of inference than just modus ponens
+
+Gentzen systems
+formulas not first class citizens - work with sequents (look like Gamma => Delta, which means if all gammas are true then some delta is true)
+
+Language (Induction):
+First layer -
+	some set of variables, Var := {P1, ... , Pn, ... }. Also introduce constants like T and F which denote truthiness and falsiness.
+Second layer - 
+	compounding the variables: P1 ^ P2 | P1 -> P2 | ~P3
+Third - compound second layer sentences, etc.
+Any layer, no matter how complicated, is always finite.
+So all formulas are finite objects.
+The way formulas are generated is unique. Saying that (x + y) + z = x + (y + z) needs to be established in terms of semantics or in terms of axiomatics.
+Semantics: assign some set of truth values to the variables, then associate functions to the connectives.
+Tautologies - sentences that, given their shape, always output truth no matter the input.
+To check for tautologies, you might check all possible assignments of truth values - 2^n - and see if all possibilites output true. This is computationally expensive and not feasible.
+Or you can use a soundness theorem. Then since your rules of inference preserve truth, you can show something is a tautology in a simpler way.
+
+Proof (or Derivation) in some Frege language F.
+A proof is just a finite sequence of formulas s.t. every formula is either an axiom or it is the conclusion of an instance of modus ponens s.t. the premises occur before the formula.
+Axioms are proofs of themselves.
+Then inductively, if you are not on an axiom, you must be an application of the inference rule to previously-occurring formulas.
+If a proof is legal it must belong to at least one layer.
+While well-formed formulas are generated uniquely, valid proofs are not unique (you can always precede any valid proof by an arbitrary number of axiom instances).
+
+soundness: proof -> truth
+
+To do (to prove F's soundness):
+	1) All axioms are tautologies
+	2) Modus ponens preserves tautologibility
+
+===========================================
+Logic, Language and Computation
+Coordinator: Ulle Endriss (u.endriss@uva.nl) Room C3.140
+TA: Ben Rodenhauser (b.rodenhaeuser@gmail.com), C3.119
+Timetable: Mondays 17-19 in Room A1.04
+Website: www.illc.uva.nl/~ulle/teaching/lolaco/2012/
+
+Summaries: 150-200 words (upper limit is strict, include word count)
+Hints: Cover most important points made, in your own words. Summary should be self-contained. Audience should be an MoL student who did not attend. Should have clear structure. Explain the broader research area, how the specific research fits in with that, and what the main question/claim/result/etc is. Do not include opinion.
+
+==========
+MRM
+---
+Classical Semantics
+*"Static" and
+*"Extensional"
+*Subject of philosophy, logic, linguistics, computer science, cognitive philosophy.
+*Syntax/semantics/pragmatics. (Charles Morris)
+*On truth and knowledge, indicative sentences, information content, signaling, language and the world.
+*Truth/truth conditions and primacy of the sentence.
+*Wittgenstein, Tarski, Carnap, Davidson, Montague.
+
+Naive Extensionalism
+*The relation language-reality is the primary one.
+*Meaning *is* reference.
+	>terms denote objects:
+		* "Fido" |-> Fido;
+	>predicates have sets of objects as their extensions:
+		* "Boys" |-> the boys; "swim" |-> the swimmers;
+	>sentences have as their reference a truth value:
+		* "Fido is a boy." |-> 0; "Fido swims." |-> 1.
+*Principles of extensionality (GAMUT p. 5)
+	> t = t` |= phi = [t`/t]phi; t is a term
+	> A = A` |= phi = [A`/A]phi; A is a set
+	> psi = psi` |= phi = [psi`/psi]phi; psi is a sentence
+*There are only two sentence meanings?
+*We will speak of alternatives and changes.
+
+Notorious Problems with Extensionalism
+*Names with the same reference:
+	> "Lois doesn't know that Clark Kent is Superman."
+*Names without reference:
+	> "Vulcan's orbit does not lie between that of Mars and Earth."
+	> "Vulcan does not exist."
+*Substitution puzzles:
+	> "During WWII the Dutch queen resided in England."
+	> "Beatrix is the Dutch queen."
+	"So(?), Beatrix resided in England."
+	> "It is necessarily so that 9 is 9."
+	> "The number of planets is 9."
+	> "It is necessarily so that the number of planets is 9."
+
+Modal Propositional Logic
+*syntax (Backus-Naur form), for p in P
+	phi ::= p | ~phi | phi ^ phi | ... | box phi | diamond phi
+
+*Box operator presents strong, universal intensional operator, diamond its weak counterpart.
+*Necessary vs possibly; obliged vs permitted; always vs sometimes; believe vs not exclude.
+*Semantics: M = <W, R, V>
+	R subset of W^2; V: W -> (P -> {0, 1})
+* For w in W: V sub(M, w)(phi) in {0, 1} respects propositional logic
+	> Vsub(M,w)(box phi) = 1 iff Vsub(M,w`)(phi) = 1 for all w` s.t. R(w, w`);
+	> Vsub(M,w)(diamond phi) = 1 iff Vsub(M, w`)(phi) = 1 for some w` s.t. R(w, w`)
+* Vsub(M, w)(phi) = ` iff M, w |= phi. (Or: <W, R, V>, w |= phi.)
+
+*It must be obvious that by the interpretation of box and diamond the semantics is not extensional; interpretation does not solely depend on the so-called actual world of evaluation.
+*The logic is that of propositional logic plus:
+	> the dualities |- diamond phi <-> ~box~phi and |- box phi <-> ~diamond~phi
+	> the necessitation rule: |-box phi from |- phi
+	> the distribution axiom: |- (box(phi -> psi) -> (box phi -> box psi))
+*What about
+	> box phi -> phi ?
+	> box phi -> box box phi ?
+	> diamond box phi -> phi ?
+*Think of ontological, deontic, epistemic, temporal modalities.
+
+Intensional and Dynamic Semantics
+*Upon reflection, alternatives are already there in classical semantics; not truth, but truth conditions.
+*we look at alternatives, that is intensional semantics.
+*It is very much controlled by parameters of variation: modals, tense, attitudes.
+*Travel across logical/ontological/conceptual/theological ... space.
+>>Intensional semantics: return tickets only, you always go back home.
+>>Dynamic semantics: one-way tickets only, some changes cannot be undone.
+
+Dynamic Semantics
+*You cannot change a score in a soccer game from 4-3 back into 2-2.
+*"I haven't told you yet that your boss is about to fire you."
+*"I tell you it is time for a break now."
+===================
+Modal Logic
+----------
+Alexandru Baltag
+TA: Jort Bergfeld
+
+week 1: Basic Concepts (ch 1)
+2, 3:	Models (ch 2)
+4, 5:	Finite model properties & van Benthem's Characterization Theorem (ch 2)
+6:		Strong completeness (ch 4)
+7: 		Canonicity (ch 4)
+8:		break (take home exam)
+9: 		Completeness for PDL (ch 4.8)
+10, 11:	Frame def. & correspondence theory (3.1, 3.2, 3.5, 3.6)
+12, 13:	Decidability & Complexity (ch 6)
+14:		Advanced topics & applications
+15:		Take-home exam
+
+modalities:
+	*necessity/possibility
+	*known/belief
+	*obligation/permission
+	*temporal modalities
+	*provable
+
+Kripke Semantics (relational)
+
+A model M := <W, R> where W is the universe of discourse and R is a set of relations on W
+Modal logics are pairs (W, R) where R is a binary relation.
+"By the way, later the book generalizes the box to something called triangles"
+
+For w in W, w |= diamond phi iff there exists w` s.t. R(w, w`) and w` |= phi
+			w |= box phi iff for all w` s.t. R(w, w`) we have w` |= phi
+
+
+A binary relation R is connected (complete) iff for all w, w` we have R(w, w`) or R(w`, w) or w` = w
+
+Trees: <T, S> s.t. S subset of TxT.
+	1) Has a unique root; There exists a unique r in T s.t. for any t != r in T, S+(r, t). S+ iterates S one, two, three ... times.
+	2) Every node (except root) has a unique predecessor. For all t != r, there is a unique t` in T s.t. S(t`, t).
+	3) Acyclic. For all t in T, ~S+(t, t)
+
+Similarity type: T = <O, tau, Phi> where O is not empty and tau: O -> N, the natural numbers.
+tau(box) = tau(diamond) = 1. Phi some set of propositional letters.
+phi ::= p | ~phi | phi v phi | delta(phi1, ..., phin), delta in O, tau(delta) = n
+and nabla(phi1, ..., phin) := ~delta(~phi1, ..., ~phin)
