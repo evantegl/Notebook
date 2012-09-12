@@ -48,23 +48,61 @@
 	</div>
 
 	<div class="container-fluid">
+
 		<div class="span3">
 			<ul class="nav nav-list">
 				<li class="nav-header">Notes</li>
 				<li><a href="notes.html"><i class="icon-pencil"></i> Browse</a></li>
 				<li class="active"><a href="upload.html"><i class="icon-upload"></i> Upload</a></li>
 				<li class="nav-header">Account</li>
-				<li><a href="settings.html"><i class="icon-cog"></i> settings</a></li>
-				<li><a href="#"><i class="icon-off"></i> log out</a></li>
+				<li><a href="settings.html"><i class="icon-cog"></i> Settings</a></li>
+				<li><a href="#"><i class="icon-off"></i> Log out</a></li>
 			</ul>
 		</div>
+
 		<div class="span9">
-			<div class="welcome">
-				<h1>Welcome back to <p class="notebook">Notebook</p>!</h1>
-				<p><span class="notebook">Notebook</span> is a place to share and download notes for your classes. You can <a href="register.html">upload your notes</a>, or you can <a href="notes.html">view the ones available</a>.</p>
-				<a href="upload.html" class="btn btn-success btn-large"><i class="icon-upload icon-white"></i> I want to upload!</a>
-				<a href="notes.html" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> To the notes!</a>
-			</div>
+			<form action="" class="form-horizontal">
+				<legend>Upload your notes</legend>
+				<div class="control-group">
+					<label for="course" class="control-label">Course:</label>
+					<div class="controls">
+						<input type="text" id="course" placeholder="ex: 'Modal Logic'" title="course">
+						<span class="help-inline">Write the course name here</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Date:</label>
+					<div class="controls">
+						<select title="month" class="span1" id="month" name="month">
+							<option value="January">Jan</option>
+							<option value="February">Feb</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">Aug</option>
+							<option value="September">Sept</option>
+							<option value="October">Oct</option>
+							<option value="November">Nov</option>
+							<option value="December">Dec</option>
+						</select>
+						<input type="text" class="span1" id="day" placeholder="day" title="day">
+						<input type="text" class="span1" id="year" placeholder="year" title="year">
+						<span class="help-inline">Date your notes were taken</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Choose file:</label>
+					<div class="controls">
+						<input type="file" id="file" title="Upload a file">
+					</div>
+				</div>
+				<div class="form-actions">
+					<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Save</button>
+					<button class="btn btn-danger" type="reset"><i class="icon-remove icon-white"></i> Reset</button></div>
+			</form>
+
 		</div>
 	</div>
 
