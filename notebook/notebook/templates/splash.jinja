@@ -1,0 +1,31 @@
+{% extends "base.jinja" %}
+
+{% macro welcome_graf(button_text, button_icon, notes_text, link_url) -%}
+	<p><span class="notebook">Notebook</span> is a place to share and download notes for your classes. You can <a href="{{ link_url }}">{{ notes_text }}</a>, or you can go straight to the <a href="notes.html">catalog</a>.</p>
+	<a href="{{ link_url }}" class="btn btn-success btn-large"><i class="icon-{{ button_icon }} icon-white"></i> {{ button_text }}</a>
+	<a href="notes.html" class="btn btn-info btn-large"><i class="icon-pencil icon-white"></i> To the notes!</a>
+{%- endmacro %}
+
+{% block content %}
+	{% if user %}
+		<div class="welcome">
+			<h1>Welcome to <p class="notebook">Notebook</p>!</h1>
+			{{ 
+				welcome_graf("I want to upload!",
+					"upload",
+					"upload your notes",
+					"upload.html") 
+			}}
+		</div>
+	{% else %}
+		<div id="welcome">
+			<h1>Welcome to <p class="notebook">Notebook</p>!</h1>
+			{{
+				welcome_graf("Sign me in!",
+					"user",
+					"log in to upload notes",
+					login_url)
+			}}
+		</div>
+	{% endif %}
+{% endblock %}
