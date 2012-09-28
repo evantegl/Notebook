@@ -1,0 +1,15 @@
+{% macro nav_tab(page) %}
+	{%
+		set pages = [("Home", "", "home"), ("About", "about", "info-sign"), ("Contact", "contact", "envelope")]
+	%}
+
+	<ul class="nav">
+		{% for li in pages %}
+			{% if page == li[0] %}
+				<li class="active"><a href="/{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% else %}
+				<li><a href="/{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endmacro %}

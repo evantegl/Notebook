@@ -1,8 +1,10 @@
+{% from 'helpers/helpers.jinja' import nav_tab %}
+
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Notebook</title>
+	<title>Notebook - {{ title }}</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" href="/img/favicon.ico">
@@ -22,13 +24,13 @@
 	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-			 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			 </a>
-			 <a class="brand" href="/"><p class="notebook">Notebook</p></a>
-			 <div class="nav-collapse collapse">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/"><p class="notebook">Notebook</p></a>
+				<div class="nav-collapse collapse">
 					{% if user %}
 						<ul class="nav pull-right">
 							<li class="dropdown">
@@ -44,12 +46,13 @@
 							<a href="{{ login_url }}">Log in</a>
 						</p>
 					{% endif %}
-				<ul class="nav">
-				  <li class="active"><a href="/"><i class="icon-white icon-home"></i> Home</a></li>
-				  <li><a href="/about"><i class="icon-white icon-info-sign"></i> About</a></li>
-				  <li><a href="/contact"><i class="icon-white icon-envelope"></i> Contact</a></li>
-				</ul>
-			 </div>
+					{{ nav_tab(title) }}
+					<!-- <ul class="nav">
+						<li class="active"><a href="/"><i class="icon-white icon-home"></i> Home</a></li>
+						<li><a href="/about"><i class="icon-white icon-info-sign"></i> About</a></li>
+						<li><a href="/contact"><i class="icon-white icon-envelope"></i> Contact</a></li>
+					</ul> -->
+				</div>
 			</div>
 		</div>
 	</div>
