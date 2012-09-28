@@ -1,14 +1,43 @@
+{# generates the navbar tabs #}
 {% macro nav_tab(page) %}
 	{%
-		set pages = [("Home", "", "home"), ("About", "about", "info-sign"), ("Contact", "contact", "envelope")]
+		set pages = [("Home", "/", "home"), ("About", "about", "info-sign"), ("Contact", "contact", "envelope")]
 	%}
 
 	<ul class="nav">
 		{% for li in pages %}
 			{% if page == li[0] %}
-				<li class="active"><a href="/{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+				<li class="active"><a href="{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
 			{% else %}
-				<li><a href="/{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+				<li><a href="{{ li[1] }}"><i class="icon-white icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endmacro %}
+
+{# generates the sidebar when user is logged in #}
+{% macro sidebar(page) %}
+	{%
+		set notes = [("Browse", "catalog", "pencil"), ("Upload", "upload", "upload")]
+	%}
+	{%
+		set account = [("Settings", "settings", "cog"), ("Log out", login_url, "off")]
+	%}
+	<ul class="nav nav-list">
+		<li class="nav-header">Notes</li>
+		{% for li in notes %}
+			{% if page == li[0] %}
+				<li class="active"><a href="{{ li[1] }}"><i class="icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% else %}
+				<li><a href="{{ li[1] }}"><i class="icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% endif %}
+		{% endfor %}
+		<li class="nav-header">Account</li>
+		{% for li in account %}
+			{% if page == li[0] %}
+				<li class="active"><a href="{{ li[1] }}"><i class="icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
+			{% else %}
+				<li><a href="{{ li[1] }}"><i class="icon-{{ li[2] }}"></i> {{ li[0] }}</a></li>
 			{% endif %}
 		{% endfor %}
 	</ul>

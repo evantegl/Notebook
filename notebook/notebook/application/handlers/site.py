@@ -81,12 +81,47 @@ class Contact(webapp2.RequestHandler):
 		else:
 			_from = self.request.get('email')
 
-		message = mail.EmailMessage()
+		message         = mail.EmailMessage()
 		message.subject = "Notebook: Contact form from %s" % _from
-		message.sender = _from
-		message.to = "evantegl@gmail.com"
-		message.body = _message
+		message.sender  = _from
+		message.to      = "evantegl@gmail.com"
+		message.body    = _message
 
 		message.send()
 
+		self.redirect('/')
+
+class Upload(webapp2.RequestHandler):
+	def get(self):
+
+		title = "Upload"
+
+		user = users.get_current_user()
+		url  = users.create_logout_url(self.request.uri)
+
+		template_values = {
+			'user': user,
+			'login_url': url,
+			'title': title,
+		}
+
+		template = env.get_template('upload.jinja')
+		self.response.out.write(template.render(template_values))
+
+	def post(self):
+		user = users.get_current_user()
+
+		course = self.request.get('course')
+		month  = self.request.get('month')
+		day    = self.request.get('day')
+		year   = self.request.get('year')
+
+		self.redirect('/catalog')
+
+class Catalog(webapp2.RequestHandler):
+	def get(self):
+		self.redirect('/upload')
+
+class Settings(webapp2.RequestHandler):
+	def get(self):
 		self.redirect('/')

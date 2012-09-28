@@ -17,10 +17,20 @@ handlers:
 - url: /
   script: application.notebook.app
 
-- url: /about
+- url: /[aA]bout/?
   script: application.notebook.app
 
-- url: /contact
+- url: /[cC]ontact/?
+  script: application.notebook.app
+
+- url: /[uU]pload/?
+  script: application.notebook.app
+  login: required
+
+- url: /[cC]atalog/?
+  script: application.notebook.app
+
+- url: /[sS]ettings/?
   script: application.notebook.app
 
 - url: /.*

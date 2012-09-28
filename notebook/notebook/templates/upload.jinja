@@ -1,0 +1,45 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+	<form action="/upload" method="post" class="form-horizontal">
+		<legend>Upload your notes</legend>
+		<div class="control-group">
+			<label for="course" class="control-label">Course:</label>
+			<div class="controls">
+				<input type="text" id="course" name="course" placeholder="ex: 'Modal Logic'" title="course">
+				<span class="help-inline">Write the course name here</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Date:</label>
+			<div class="controls">
+				<select title="month" class="span1" id="month" name="month">
+					<option value="January">Jan</option>
+					<option value="February">Feb</option>
+					<option value="March">March</option>
+					<option value="April">April</option>
+					<option value="May">May</option>
+					<option value="June">June</option>
+					<option value="July">July</option>
+					<option value="August">Aug</option>
+					<option value="September">Sept</option>
+					<option value="October">Oct</option>
+					<option value="November">Nov</option>
+					<option value="December">Dec</option>
+				</select>
+				<input type="text" class="span1" id="day" name="day" placeholder="day" title="day">
+				<input type="text" class="span1" id="year" name="year" placeholder="year" title="year">
+				<span class="help-inline">Date your notes were taken</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="file">Choose file:</label>
+			<div class="controls">
+				<input type="file" id="file" name="file" title="Upload a file">
+			</div>
+		</div>
+		<div class="form-actions">
+			<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Upload</button>
+			<button class="btn btn-danger" type="reset"><i class="icon-remove icon-white"></i> Reset</button></div>
+	</form>
+{% endblock %}
