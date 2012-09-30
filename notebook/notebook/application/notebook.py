@@ -7,7 +7,9 @@ app = webapp2.WSGIApplication([
 		('/', site.Splash),
 		(r'/[aA]bout/?', site.About),
 		(r'/[cC]ontact/?', site.Contact),
-		(r'/[uU]pload/?', site.Upload),
+		(r'/[uU]pload/?', site.UploadForm),
+		(r'/upload_file', site.UploadHandler),
+		(r'/[cC]atalog/([^/]+)?', site.ViewNote),
 		(r'/[cC]atalog/?', site.Catalog),
 		(r'/[sS]ettings/?', site.Settings),
 	])

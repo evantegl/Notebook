@@ -16,6 +16,7 @@ handlers:
 
 - url: /
   script: application.notebook.app
+  login: required
 
 - url: /[aA]bout/?
   script: application.notebook.app
@@ -27,11 +28,21 @@ handlers:
   script: application.notebook.app
   login: required
 
+- url: /upload_file
+  script: application.notebook.app
+  login: required
+
+- url: /[cC]atalog/([^/]+)?
+  script: application.notebook.app
+
 - url: /[cC]atalog/?
   script: application.notebook.app
 
 - url: /[sS]ettings/?
   script: application.notebook.app
+
+# - url: /serve/([^/]+)?
+#   script: application.notebook.app
 
 - url: /.*
   script: application.handlers.404.app

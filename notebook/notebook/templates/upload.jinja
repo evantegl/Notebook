@@ -1,7 +1,7 @@
 {% extends "base.jinja" %}
 
 {% block content %}
-	<form action="/upload" method="post" class="form-horizontal">
+	<form action="{{ upload_url }}" enctype="multipart/form-data" method="post" class="form-horizontal">
 		<legend>Upload your notes</legend>
 		<div class="control-group">
 			<label for="course" class="control-label">Course:</label>
@@ -14,18 +14,18 @@
 			<label class="control-label">Date:</label>
 			<div class="controls">
 				<select title="month" class="span1" id="month" name="month">
-					<option value="January">Jan</option>
-					<option value="February">Feb</option>
-					<option value="March">March</option>
-					<option value="April">April</option>
-					<option value="May">May</option>
-					<option value="June">June</option>
-					<option value="July">July</option>
-					<option value="August">Aug</option>
-					<option value="September">Sept</option>
-					<option value="October">Oct</option>
-					<option value="November">Nov</option>
-					<option value="December">Dec</option>
+					<option value="1">Jan</option>
+					<option value="2">Feb</option>
+					<option value="3">March</option>
+					<option value="4">April</option>
+					<option value="5">May</option>
+					<option value="6">June</option>
+					<option value="7">July</option>
+					<option value="8">Aug</option>
+					<option value="9">Sept</option>
+					<option value="10">Oct</option>
+					<option value="11">Nov</option>
+					<option value="12">Dec</option>
 				</select>
 				<input type="text" class="span1" id="day" name="day" placeholder="day" title="day">
 				<input type="text" class="span1" id="year" name="year" placeholder="year" title="year">
