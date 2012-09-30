@@ -41,9 +41,6 @@ handlers:
 - url: /[sS]ettings/?
   script: application.notebook.app
 
-# - url: /serve/([^/]+)?
-#   script: application.notebook.app
-
 - url: /.*
   script: application.handlers.404.app
 

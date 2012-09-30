@@ -149,7 +149,6 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 		note.put()
 
 		self.redirect('/catalog/%s' % data_key)
-		# self.redirect('/')
 
 class ViewNote(blobstore_handlers.BlobstoreDownloadHandler):
 	def get(self, note_key):
