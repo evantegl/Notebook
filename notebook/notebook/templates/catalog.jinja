@@ -1,0 +1,58 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+{% if existence is defined %}
+<table class="table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th><i class="icon-book"></i> Course</th>
+			<th><i class="icon-calendar"></i> Date</th>
+			<th><i class="icon-file"></i> Filesize</th>
+			<th><i class="icon-user"></i> Uploader</th>
+			<th><i class="icon-download"></i> Download</th>
+			<th><i class="icon-eye-open"></i> Preview</th>
+		</tr>
+	</thead>
+	<tbody>
+		<div class="accordion" id="accordion">
+			{% for note in notes %}
+				<tr>
+					<td>{{ note.course }}</td>
+					<td>{{ note.recorded_date }}</td>
+					<td>{{ note.data_key.size }} bytes</td>
+					<td>{{ note.user.nickname() }}</td>
+					<td><a href="/catalog/{{ note.data_key.key() }}">{{ note.data_key.filename }}</a></td>
+					<td>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a href="#Notes{{ loop.index }}" data-parent="accordion" class="btn btn-mini btn-info" data-toggle="collapse">{{ note.data_key.content_type }}</a>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<!-- the preview -->
+				<tr>
+					<td colspan="6" class="preview">
+						<div class="accordion-body collapse" id="Notes{{ loop.index }}">
+							<div class="accordion-inner">
+								<div class="txt">
+									<object data="/catalog/{{ note.data_key.key() }}" type="{{ note.data_key.content_type }}" width="100%" height="100%">Sorry, your browser does not support previewing {{ note.data_key.content_type }} files. You can <a href="{{ note.data_key.key() }}">download</a> this file instead.
+									</object>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</div>
+	</tbody>
+</table>
+{% else %}
+<div class="alert alert-error">
+	<h1>No notes here!</h1>
+	<p>
+		Perhaps you should try <a href="/upload">adding some</a>?
+	</p>
+</div>
+{% endif %}
+{% endblock %}

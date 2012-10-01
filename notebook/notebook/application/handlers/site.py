@@ -153,7 +153,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 class ViewNote(blobstore_handlers.BlobstoreDownloadHandler):
 	def get(self, note_key):
 		note_key = str(urllib.unquote(note_key))
-		info = blobstore.BlobInfo.get(note_key)
+		info = blobstore.get(note_key)
 		self.send_blob(info)
 
 class Catalog(webapp2.RequestHandler):
@@ -161,7 +161,31 @@ class Catalog(webapp2.RequestHandler):
 	user = users.get_current_user()
 	
 	def get(self):
-		self.redirect('/')
+
+		title="Browse"
+
+		if self.user:
+			url = users.create_logout_url(self.request.uri)
+		else:
+			url = users.create_login_url(self.request.uri)
+
+		notes_list = db.GqlQuery("SELECT * FROM Note " +
+		                         "ORDER BY recorded_date " +
+		                         "LIMIT 10")
+
+		defined = notes_list.get()
+
+		template_values = {
+			'user': self.user,
+			'login_url': url,
+			'title': title,
+			'notes': notes_list,
+			'existence': defined,
+		}
+
+		template = env.get_template('catalog.jinja')
+		self.response.out.write(template.render(template_values))
+
 
 class Settings(webapp2.RequestHandler):
 	

@@ -9,8 +9,8 @@ app = webapp2.WSGIApplication([
 		(r'/[cC]ontact/?', site.Contact),
 		(r'/[uU]pload/?', site.UploadForm),
 		(r'/upload_file', site.UploadHandler),
-		(r'/[cC]atalog/([^/]+)?', site.ViewNote),
 		(r'/[cC]atalog/?', site.Catalog),
+		(r'/[cC]atalog/([^/]+)?', site.ViewNote),
 		(r'/[sS]ettings/?', site.Settings),
 	])
 
